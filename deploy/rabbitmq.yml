@@ -30,12 +30,17 @@ spec:
     requests:
       storage: 1Gi
 ---
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: rabbitmq
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: rabbitmq
+      role: master
+      tier: queue
   template:
     metadata:
       labels:
