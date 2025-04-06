@@ -37,5 +37,5 @@ spec:
       initContainers:
         - name: init-celery-broker
           image: busybox
-          command: ['sh', '-c', 'until nslookup message-queue; do echo waiting for message-queue to be available; sleep 2; done;']
+          command: ['sh', '-c', 'until nslookup message-queue.default.svc.cluster.local; do echo waiting for message-queue to be available; sleep 2; done;']
 
